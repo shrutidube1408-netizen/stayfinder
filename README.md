@@ -20,6 +20,7 @@ Made for the 21CSC203P Advanced Programming Practice project.
 | `rules.py` | Booking rules, validation, password hashing, and unit tests |
 | `windows.py` | The login page and pop-up windows (details, booking) |
 | `main_app.py` | The main window; run this file to start the app |
+| `show_passwords.py` | Prints the `users` table to show passwords are saved as salted hashes |
 
 ## How to run
 Needs Python 3 (tkinter and sqlite3 come with it, so nothing to install).
@@ -34,4 +35,11 @@ Demo login: username `APPisfav`, password `fullmarks` (or create a new account).
 ## Run the tests
 ```
 python -m unittest rules
+```
+
+## See the hashed passwords
+Passwords are never saved as plain text. Each one is saved as `salt$sha256(salt + password)`.
+After running the app once:
+```
+python show_passwords.py
 ```
